@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :guesses, through: :rounds
   has_many :played_decks, through: :rounds, source: :deck
 
-  validates :username, :email, presence: true, uniqueness: true
+  validates :username, :email, presence: true
+  validates_uniqueness_of :email
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
 end
