@@ -1,12 +1,12 @@
 get '/users/new' do
-  erb :'/users/new'          #form to create new account
+  erb :'/users/new'
 end
 
 post '/users' do
   user = User.new(params[:user])
   if user.save
     session[:user_id] = user.id
-    redirect '/decks'         #creates new user and redirects to decks page
+    redirect '/decks'
   else
     @errors = user.errors.full_messages
     erb :'/users/new'
@@ -14,14 +14,18 @@ post '/users' do
 end
 
 get '/users/login' do
-  erb :'sessions/new'      #gets user login form
+  erb :'sessions/new'
 end
 
 post '/users/login' do
   user = User.find_by_email(params[:user][:email])
   if user && user.authenticate(params[:user][:password])
     session[:user_id] = user.id
-  redirect "/users/#{user.id}"     #logs in user, creates session, and redirects to user page
+  redirect '/decks'
+  else
+    redirect '/users/login'
+    @errors = user.errors.full_messages
+  end
 end
 
 get '/users/:id' do
@@ -30,6 +34,6 @@ get '/users/:id' do
 end
 
 get '/logout' do
-  session.clear           # logs out user
+  session.clear
   redirect '/'
 end
