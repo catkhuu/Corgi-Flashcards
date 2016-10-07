@@ -42,3 +42,9 @@ input[type=submit] {
 body {
   padding: 20px;
 }
+
+.flashcard {
+  background-color: grey;
+  padding: 30px;
+  text-align: center;
+}
