@@ -18,6 +18,19 @@
   <title></title>
 </head>
 <body>
+  <nav>
+    <ul>
+      <% if logged_in? %>
+        <a href="/logout">Logout</a>
+        <a href="/decks">Home</a>
+        <a href="/users/<%= current_user.id %>"><%= current_user.username %></a>
+        <h3>Welcome, <%= current_user.username %></h3>
+      <% else %>
+        <a href="/users/new">Create Account</a>
+        <a href="/users/login">Login</a>
+      <% end %>
+    <ul>
+  </nav>
   <div id="site-title">CorgiCards&trade;</div>
   <%= yield %>
   <div id="site-footer">&copy; 2016 CorgiCards.com | All Corgi Rights Reserved</div>
