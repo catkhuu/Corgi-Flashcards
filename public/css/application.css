@@ -1,0 +1,44 @@
+.center {
+    margin: auto;
+    width: 50%;
+}
+
+.container {
+  text-align: center;
+  border-top: 3px solid grey;
+  border-bottom: 3px solid grey;
+  padding: 40px 20px 40px 20px;
+}
+
+input[type=submit] {
+  /*opacity: 0.1;*/
+  border-radius: 5px;
+  padding: 15px;
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+}
+
+#flashcards {
+  -webkit-column-count: 3; /* Chrome, Safari, Opera */
+  -moz-column-count: 3; /* Firefox */
+  column-count: 3;
+}
+
+#cute-corgi {
+  max-width: 300px;
+}
+
+#site-title {
+  font-size: 40px;
+  padding-bottom: 20px;
+}
+
+#site-footer {
+  text-align: center;
+  padding: 20px;
+}
+
+body {
+  padding: 20px;
+}
