@@ -2,11 +2,6 @@ get '/' do
   erb :index
 end
 
-get '/decks' do
-  @decks = Deck.all
-  erb :'/decks/index'
-end
-
 get '/rounds/:id' do
   @round = Round.find(params[:id])
   @deck = Deck.find(@round.deck_id)

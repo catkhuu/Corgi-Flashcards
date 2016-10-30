@@ -1,0 +1,11 @@
+<h1> <%= @deck.name %></h1>
+
+<h2><%= @card.question %></h2>
+<form action = '/guess/new' method= 'post'>
+  <input type='hidden' name='deck' value = '<%=@deck.id%>'>
+  <input type='hidden' name='card' value = '<%=@card.id%>'>
+
+
+  <input type='text' name='guess'><br>
+  <input type= 'submit' value='submit your guess'><br>
+</form>
